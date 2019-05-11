@@ -13,6 +13,8 @@ function distance(data){
 function draw(){
 background(0);
 fill(255,0,0)
+textSize(20)
 text(distt,width/2,height/2)
+text("Home Security 1",width/2,height/2 +30)
 
 }
