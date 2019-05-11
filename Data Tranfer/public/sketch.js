@@ -2,7 +2,7 @@ var socket;
 var distt = 0;
 function setup(){
 createCanvas(windowWidth * 0.68, windowHeight);
-socket = io.connect('localhost:5000')
+socket = io.connect('https://homesecuritybymb.herokuapp.com')
 socket.on('sendingdistance', distance)
 
 }
