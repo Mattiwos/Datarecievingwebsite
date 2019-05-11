@@ -20,6 +20,7 @@ io.on('connection', function(socket){
   ///////////////
   console.log('a user connected');
   console.log(socket.id);
+  io.emit('sendingdistance', distss)
   io.emit('chat message', socket.id +' has logged on');
   socket.on('disconnect', function(){
     console.log('user disconnected');
