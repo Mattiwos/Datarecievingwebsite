@@ -5,7 +5,7 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var user = 'unknown'
 var realname = ''
-var distss = 0;
+var distancedata =[];
 var port = process.env.PORT || 5000;
 
 app.use(express.static( 'public'));
@@ -20,8 +20,8 @@ io.on('connection', function(socket){
   ///////////////
   console.log('a user connected');
   console.log(socket.id);
-  io.emit('sendingdistance', distss)
   io.emit('chat message', socket.id +' has logged on');
+  io.emit('sendingdistance', distancedata)
   socket.on('disconnect', function(){
     console.log('user disconnected');
     io.emit('chat message', socket.id +' has logged off');
@@ -46,20 +46,78 @@ function NewConnection(socket){
 io.sockets.on('connection', NewConnections);
 function NewConnections(socket){
   console.log('new connection here ' + socket.id)
-  socket.on('bbb', message)
+  socket.on('arduino1', message)
 
 
   function message(data){
     console.log(data)
-    distss = data
+    distancedata[0] = data
     //socket.broadcast.emit('mouse', data)
-    io.emit('sendingdistance', distss)
+    io.emit('sendingdistance', distancedata)
     //io.socket.broadcast.emit('mouse', data)
     console.log(data)
   }
 }
+io.sockets.on('connection', NewConnectionss);
+function NewConnectionss(socket){
+  console.log('new connection here ' + socket.id)
+  socket.on('arduino2', message)
 
 
+  function message(data){
+    console.log(data)
+    distancedata[1] = data
+    //socket.broadcast.emit('mouse', data)
+    io.emit('sendingdistance', distancedata)
+    //io.socket.broadcast.emit('mouse', data)
+    console.log(data)
+  }
+}
+io.sockets.on('connection', NewConnectionsss);
+function NewConnectionsss(socket){
+  console.log('new connection here ' + socket.id)
+  socket.on('arduino3', message)
+
+
+  function message(data){
+    console.log(data)
+    distancedata[2] = data
+    //socket.broadcast.emit('mouse', data)
+    io.emit('sendingdistance', distancedata)
+    //io.socket.broadcast.emit('mouse', data)
+    console.log(data)
+  }
+}
+io.sockets.on('connection', NewConnectionssss);
+function NewConnectionssss(socket){
+  console.log('new connection here ' + socket.id)
+  socket.on('arduino4', message)
+
+
+  function message(data){
+    console.log(data)
+    distancedata[3] = data
+    //socket.broadcast.emit('mouse', data)
+    io.emit('sendingdistance', distancedata)
+    //io.socket.broadcast.emit('mouse', data)
+    console.log(data)
+  }
+}
+io.sockets.on('connection', NewConnectionsssss);
+function NewConnectionsssss(socket){
+  console.log('new connection here ' + socket.id)
+  socket.on('arduino5', message)
+
+
+  function message(data){
+    console.log(data)
+    distancedata[4] = data
+    //socket.broadcast.emit('mouse', data)
+    io.emit('sendingdistance', distancedata)
+    //io.socket.broadcast.emit('mouse', data)
+    console.log(data)
+  }
+}
 //io.on('connection', function(socket){
   //socket.on('chat message', function(msg){
  //if (msg.includes('+my name is') == true){
