@@ -3,7 +3,7 @@ var distancead = [];
 var username,password,tag,submitbutton;
 var name,pass;
 var realnameandpass =[];
-
+var realname,realpass;
 var checker = false;
 function setup(){
 createCanvas(windowWidth, windowHeight);
@@ -21,10 +21,10 @@ socket.on('realnameandpass', vr)
     tag.position(width/2, 0);
 }
 function vr(data){
-    realnameandpass = data
-    print(realnameandpass[0])
-var realname = realnameandpass[0];
-var realpass = realnameandpass[1];
+realnameandpass = data
+    
+realname = String(realnameandpass[0])
+realpass = String(realnameandpass[1])
 
 }
 function distance(data){
@@ -33,7 +33,9 @@ function distance(data){
 function attemptedlogin(){
 name = username.value()
 pass = password.value()
-if (name == realname && pass == realpass){
+    print("name " + name " real " +realname)
+    print("pass " + pass " real " +realpass)
+if (name = realname && pass = realpass){
 removeElements()
 checker = true
 }  
