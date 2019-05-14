@@ -2,13 +2,13 @@ var socket;
 var distancead = [];
 var username,password,tag,submitbutton;
 var name,pass;
-var realname = "mattiwos";
-var realpass = "admin";
+
 var checker = false;
 function setup(){
 createCanvas(windowWidth, windowHeight);
 socket = io.connect('https://homesecuritybymb.herokuapp.com')
 socket.on('sendingdistance', distance)
+socket.on('realnameandpass', vr)
     username = createInput('username');
     username.position(width/2,20)
     password = createInput('password');
@@ -18,6 +18,11 @@ socket.on('sendingdistance', distance)
     submitbutton.mousePressed(attemptedlogin);
     tag = createElement('b2', 'Log in');
     tag.position(width/2, 0);
+}
+function vr(data){
+var realname = data[0];
+var realpass = data[1];
+
 }
 function distance(data){
   distancead = data
