@@ -5,10 +5,10 @@ function setup(){
 createCanvas(windowWidth, windowHeight);
 socket = io.connect('https://homesecuritybymb.herokuapp.com')
 socket.on('sendingdistance', distance)
-    username = createInput('');
-    username.position(width/2,10)
-    password = createInput('');
-    password.position(width/2,30)
+    username = createInput('username');
+    username.position(width/2,20)
+    password = createInput('password');
+    password.position(width/2,40)
     submitbutton = createButton('login');
     submitbutton.position(width/2, 60);
     submitbutton.mousePressed(attemptedlogin);
@@ -23,6 +23,7 @@ function attemptedlogin(){
 
 }
 function draw(){
+if (username.value() == "mattiwos" && password.value() == "admin"){
 background(0);
 fill(255,0,0)
 textSize(10)
@@ -41,5 +42,5 @@ text(distancead[3],300,height/2+50)
 //Arduino5
 text("Arduino 5 results:",400,height/2)
 text(distancead[4],400,height/2+50)
-
+}
 }
