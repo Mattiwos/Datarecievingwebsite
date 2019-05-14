@@ -20,8 +20,10 @@ socket.on('realnameandpass', vr)
     tag.position(width/2, 0);
 }
 function vr(data){
-var realname = data[0];
-var realpass = data[1];
+    var realnameandpass = data
+    print(realnameandpass)
+var realname = realnameandpass[0];
+var realpass = realnameandpass[1];
 
 }
 function distance(data){
