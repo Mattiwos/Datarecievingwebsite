@@ -2,6 +2,7 @@ var socket;
 var distancead = [];
 var username,password,tag,submitbutton;
 var name,pass;
+var realnameandpass =[];
 
 var checker = false;
 function setup(){
@@ -20,8 +21,8 @@ socket.on('realnameandpass', vr)
     tag.position(width/2, 0);
 }
 function vr(data){
-    var realnameandpass = data
-    print(realnameandpass)
+    realnameandpass = data
+    print(realnameandpass[0])
 var realname = realnameandpass[0];
 var realpass = realnameandpass[1];
 
