@@ -1,15 +1,27 @@
 var socket;
 var distancead = [];
+var username,password,tag,submitbutton;
 function setup(){
 createCanvas(windowWidth, windowHeight);
 socket = io.connect('https://homesecuritybymb.herokuapp.com')
 socket.on('sendingdistance', distance)
-
+    username = createInput('');
+    username.position(width/2,height/2-300)
+    password = createInput('');
+    password.position(width/2,height/2)
+    submitbutton = createButton('login');
+    submitbutton.position(password.x + password.width - 50, height/2);
+    submitbutton.mousePressed(attemptedlogin);
+    tag = createElement('b2', 'Log in');
+    tag.position(password.x + password.width -140, height/2);
 }
 function distance(data){
   distancead = data
 }
+function attemptedlogin(){
 
+
+}
 function draw(){
 background(0);
 fill(255,0,0)
