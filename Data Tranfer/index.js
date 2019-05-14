@@ -6,6 +6,7 @@ var io = require('socket.io')(http);
 var user = 'unknown'
 var realname = ''
 var distancedata =[];
+var namenpass = ["mattiwos","admin"]
 var port = process.env.PORT || 5000;
 
 app.use(express.static( 'public'));
@@ -21,6 +22,7 @@ io.on('connection', function(socket){
   console.log('a user connected');
   console.log(socket.id);
   io.emit('chat message', socket.id +' has logged on');
+  io.emit('realnameandpass', namenpass)
   io.emit('sendingdistance', distancedata)
   socket.on('disconnect', function(){
     console.log('user disconnected');
