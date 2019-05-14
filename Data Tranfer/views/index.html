@@ -25,33 +25,6 @@
     <script src="/socket.io/socket.io.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 
-<script>
-  $(function () {
-    var socket = io();
-    $('form').submit(function(e){
-      e.preventDefault(); // prevents page reloading
-      socket.emit('chat message', $('#m').val());
-      $('#m').val('');
-      return false;
-    });
-    socket.on('chat message', function(msg){
-      $('#messages').append($('<li>').text(msg));
-      var objDiv = document.getElementById("messages");
-       objDiv.scrollTop = objDiv.scrollHeight;
-    });
-  });
-</script>
-
-    <div id="messagesendboxWrap">
-    <script>
-    var socket = io();
-     </script>
-    <ul id="messages"></ul>
-    <form action="">
-      <input id="m" autocomplete="off" /><button>Send</button>
-    </form>
-      <input id="username_change" autocomplete="off" /><button>Change Username</button>
-  </div>
 
 
     
