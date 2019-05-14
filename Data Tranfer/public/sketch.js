@@ -33,9 +33,9 @@ function distance(data){
 function attemptedlogin(){
 name = username.value()
 pass = password.value()
-    print("name " + name " real " +realname)
-    print("pass " + pass " real " +realpass)
-if (name = realname && pass = realpass){
+    print("name " + name+ " real " +realname)
+    print("pass " + pass +" real " +realpass)
+if (name == realname && pass == realpass){
 removeElements()
 checker = true
 }  
