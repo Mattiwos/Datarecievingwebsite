@@ -1,6 +1,10 @@
 var socket;
 var distancead = [];
 var username,password,tag,submitbutton;
+var name,pass;
+var realname = "mattiwos";
+var realpass = "admin";
+var checker = false;
 function setup(){
 createCanvas(windowWidth, windowHeight);
 socket = io.connect('https://homesecuritybymb.herokuapp.com')
@@ -19,11 +23,15 @@ function distance(data){
   distancead = data
 }
 function attemptedlogin(){
-
-
+name = username.value()
+pass = password.value()
+if (name == realname && pass == realpass){
+removeElements()
+checker = true
+}  
 }
 function draw(){
-if (username.value() == "mattiwos" && password.value() == "admin"){
+if (checker == true){
 background(0);
 fill(255,0,0)
 textSize(10)
