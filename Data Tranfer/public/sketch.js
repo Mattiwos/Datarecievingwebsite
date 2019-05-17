@@ -17,6 +17,7 @@ socket.on('realnameandpass', vr)
     submitbutton = createButton('login');
     submitbutton.position(width -160, 60);
     submitbutton.mousePressed(attemptedlogin);
+    style('color = gold')
     tag = createElement('b2', 'Log in');
     tag.position(width -160, 0);
 }
