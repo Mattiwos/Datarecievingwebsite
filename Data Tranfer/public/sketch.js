@@ -11,14 +11,14 @@ socket = io.connect('https://homesecuritybymb.herokuapp.com')
 socket.on('sendingdistance', distance)
 socket.on('realnameandpass', vr)
     username = createInput('username');
-    username.position(width/2,20)
+    username.position(width -40,20)
     password = createInput('password');
-    password.position(width/2,40)
+    password.position(width -40,40)
     submitbutton = createButton('login');
-    submitbutton.position(width/2, 60);
+    submitbutton.position(width -40, 60);
     submitbutton.mousePressed(attemptedlogin);
     tag = createElement('b2', 'Log in');
-    tag.position(width/2, 0);
+    tag.position(width -40, 0);
 }
 function vr(data){
 realnameandpass = data
